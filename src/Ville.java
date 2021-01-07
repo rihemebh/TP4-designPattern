@@ -1,7 +1,15 @@
 public class Ville implements ZoneTouristique {
+    ZoneTouristique zones [];
+
+    Ville(){
+        zones = new ZoneTouristique[] {new Musee(), new Parc()};
+    }
+
     @Override
     public void accept(ZoneTouristiqueVisitor v){
-        System.out.println(" La ville a accepte votre visite");
+        zones[0].accept(v);
+        zones[1].accept(v);
+        System.out.println("La ville a accepte votre visite");
         v.visit(this);
     }
 
